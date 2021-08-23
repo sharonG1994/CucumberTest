@@ -1,7 +1,7 @@
-Feature:Get a single employee data
-  Scenario: Viewing a single employee details
-    Given Get Single Employee
-    When ViewAllEmployees
-    And CreateNewEmployee
-    And UpdateTheEmployeeDetails
-    Then DeleteTheEmployee
+Feature:Employee Details
+  Scenario: Operations of Employees Details
+    Given ViewAllEmployees
+    When Creations Of Employee
+    And Update Employee Details
+    And View Employee Details
+    Then Delete the Employee

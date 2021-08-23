@@ -7,8 +7,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import static org.testng.AssertJUnit.assertEquals;
-
 public class GetPostSteps {
     private static final String age = "70";
     private static final String name = "Test";
@@ -17,36 +15,20 @@ public class GetPostSteps {
     private static final String BASE_URL = "http://dummy.restapiexample.com";
 
     private static Response response;
-    private static String jsonString;
 
-
-
-
-    @Given("Get Single Employee")
-    public void get_single_employee()
-    {
-        RestAssured.baseURI = BASE_URL;
-        RequestSpecification request = RestAssured.given();
-        response = request.get("/api/v1/employee/1");
-        System.out.println(response.getStatusCode());
-        //Always displays status code:Too many request(429)
-     //  assertEquals(200,response.getStatusCode());
-
-    }
-    @When("ViewAllEmployees")
+    @Given("ViewAllEmployees")
     public void view_all_employees() {
         RestAssured.baseURI = BASE_URL;
-             RequestSpecification request = RestAssured.given();
+        RequestSpecification request = RestAssured.given();
         response = request.get("/api/v1/employees");
         System.out.println(response.getStatusCode());
 
         //Always displays status code:Too many request(429)
-       // assertEquals(200,response.getStatusCode());
-
-
+        //assertEquals(200,response.getStatusCode());
     }
-    @When("CreateNewEmployee")
-    public void create_new_employee() {
+
+    @When("Creation Of Employee")
+    public void creation_of_employee() {
         RestAssured.baseURI = BASE_URL;
         RequestSpecification request = RestAssured.given();
 
@@ -58,8 +40,8 @@ public class GetPostSteps {
         //assertEquals(200,response.getStatusCode());
 
     }
-    @When("UpdateTheEmployeeDetails")
-    public void update_the_employee_details() {
+    @When("Update Employee Details")
+    public void update_employee_details() {
 
         RestAssured.baseURI = BASE_URL;
         RequestSpecification request = RestAssured.given();
@@ -72,7 +54,20 @@ public class GetPostSteps {
         //assertEquals(200,response.getStatusCode());
 
     }
-    @Then("DeleteTheEmployee")
+
+    @When("View Employee Details")
+    public void view_employee_details()
+    {
+        RestAssured.baseURI = BASE_URL;
+        RequestSpecification request = RestAssured.given();
+        response = request.get("/api/v1/employee/1");
+        System.out.println(response.getStatusCode());
+        //Always displays status code:Too many request(429)
+        // assertEquals(200,response.getStatusCode());
+
+    }
+
+    @Then("Delete the Employee")
     public void delete_the_employee() {
 
         RestAssured.baseURI = BASE_URL;
