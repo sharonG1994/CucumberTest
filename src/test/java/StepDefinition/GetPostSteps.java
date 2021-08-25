@@ -17,7 +17,8 @@ public class GetPostSteps {
     private static Response response;
 
     @Given("ViewAllEmployees")
-    public void view_all_employees() {
+    public void view_all_employees()
+    {
         RestAssured.baseURI = BASE_URL;
         RequestSpecification request = RestAssured.given();
         response = request.get("/api/v1/employees");
@@ -42,8 +43,10 @@ public class GetPostSteps {
         //assertEquals(200,response.getStatusCode());
 
     }
+
     @And("Update Employee Details")
-    public void update_employee_details() {
+    public void update_employee_details()
+    {
 
         RestAssured.baseURI = BASE_URL;
         RequestSpecification request = RestAssured.given();
@@ -71,7 +74,8 @@ public class GetPostSteps {
     }
 
     @Then("Delete the Employee")
-    public void delete_the_employee() {
+    public void delete_the_employee()
+    {
 
         RestAssured.baseURI = BASE_URL;
         RequestSpecification request = RestAssured.given();
